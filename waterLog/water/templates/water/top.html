@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Water log</title>
+  </head>
+  <body>
+    <p>How much water you drink a day</p>
+    {% if waters %} {% for water in waters %}
+
+    <p>
+      {{water.user.id}}{{water.user}} has drank {{water.amount_drank}} on
+      {{water.date}}
+    </p>
+    {% endfor %} {% else %}
+    <p>You need to drink water</p>
+    {% endif %}
+  </body>
+</html>
