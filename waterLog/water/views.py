@@ -3,7 +3,8 @@ from django.http import HttpResponse, Http404
 from water.models import WaterConsumption
 from django.contrib.auth.decorators import login_required
 @login_required
-def top(request, id):
+def top(request, ):
+    
     waters=WaterConsumption.objects.all()
     context= {"waters":waters}
     return render(request, "water/top.html", context)
