@@ -7,13 +7,13 @@
   </head>
   <body>
     <p>How much water you drink a day</p>
-    {% if waters %} {% for water in waters %}
+    {% if waters %}
 
     <p>
-      {{water.user.id}}{{water.user}} has drank {{water.amount_drank}} on
-      {{water.date}}
+      {{waters.user.id}}{{waters.user}} has drank {{waters.amount_drank}} on
+      {{waters.date}}
     </p>
-    {% endfor %} {% else %}
+    {% else %}
     <p>You need to drink water</p>
     {% endif %}
   </body>

@@ -20,6 +20,6 @@ from water.views import top
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path("",top,name="top"),
+    path("<str:username>/",top,name="top"),
     path("water/", include('water.urls'))
 ]
