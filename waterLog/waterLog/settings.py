@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'water.apps.WaterConfig',
     'dashboard.apps.DashboardConfig',
+       "bootstrap5",
     
 ]
 
