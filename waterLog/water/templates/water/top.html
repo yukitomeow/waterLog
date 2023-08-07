@@ -3,15 +3,14 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Water log</title>
+    <title>Water consumption</title>
   </head>
   <body>
     <p>How much water you drink a day</p>
-    {% if waters %}
-
+    {% if waters %} {% for element in waters%}
     <p>
-      {{waters.user.id}}{{waters.user}} has drank {{waters.amount_drank}} on
-      {{waters.date}}
+      {{element.user.id}}{{element.user}} has drank {{element.amount_drank}} on
+      {{element.date}} {% endfor %}
     </p>
     {% else %}
     <p>You need to drink water</p>
