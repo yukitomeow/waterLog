@@ -3,12 +3,36 @@ from django.http import HttpResponse, Http404, HttpResponseForbidden
 from water.models import WaterConsumption
 from django.contrib.auth.decorators import login_required
 from water.forms import WaterConsumptionForm
+from django.db.models import Sum
+from django.contrib.auth.models import User
+from datetime import date
 
 @login_required
 def top(request, username ):
-    waters=WaterConsumption.objects.filter(user__username=username) #filter by the user
-    context= {"waters":waters}
-    return render(request, "water/top.html", context)
+    # waters=WaterConsumption.objects.filter(user__username=username) #filter by the user
+    # context= {"waters":waters}
+    
+    # username = "username_here"  # Replace with actual username
+    today = date.today() # Replace with actual date
+
+# Retrieve the user
+    user = User.objects.get(username=username)
+
+# Calculate the total water consumed by the user on a specific date
+    water_consumption = WaterConsumption.objects.filter(user=user, date=today).aggregate(total_water_drank=Sum('amount_drank'))
+    total_water = water_consumption.get('total_water_drank') or 0  # Assign 0 if None
+
+    if total_water > 0:
+        context = {
+            "water_consumption": water_consumption,
+            "username": username,
+            "date": today,
+        }
+        return render(request, "water/top.html", context)
+    else:
+        # Redirect to 'drink_more' view if total_water_drank is not greater than 0
+        return redirect('top_new')
+
 
 @login_required
 def top_new(request):

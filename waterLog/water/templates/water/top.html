@@ -6,14 +6,24 @@
     <title>Water consumption</title>
   </head>
   <body>
-    <p>How much water you drink a day</p>
-    {% if waters %} {% for element in waters%}
+    <p>Water Consumption</p>
+    <!-- {% if waters %} {% for element in waters%}
     <p>
       {{element.user.id}}{{element.user}} has drank {{element.amount_drank}} on
       {{element.date}} {% endfor %}
     </p>
     {% else %}
     <p>You need to drink water</p>
-    {% endif %}
+    {% endif %} -->
+    <!-- {% if water_consumption.total_water_drank%} -->
+
+    <p>
+      {{username}} drank {{water_consumption.total_water_drank }} ml of water on
+      {{date}}
+    </p>
+    <!-- {% else %}
+
+    <p>You need to drink water</p>
+    {% endif %} -->
   </body>
 </html>
