@@ -27,21 +27,17 @@ def top(request, username):
     }
     return render(request, "water/top.html", context)
 
-
 @login_required
 def top_new(request):
     today = date.today()
     
-    # Check if water has already been logged for today and if yes, redirect to top view
-    total_water_today = WaterConsumption.objects.filter(user=request.user, date=today).aggregate(total=Sum('amount_drank'))['total'] or 0
-    if total_water_today:
-        return redirect("top", username=request.user.username)
-
+    # If there's a POST request, try to save the new water consumption
     if request.method == "POST":
         form = WaterConsumptionForm(request.POST)
         if form.is_valid():
             water = form.save(commit=False)
             water.user = request.user
+            water.date = today  # set today's date
             water.save()
             return redirect("top", username=request.user.username)
 
@@ -51,21 +47,4 @@ def top_new(request):
     return render(request, "water/top_new.html", {"form": form})
 
 
-@login_required
-def edit_water_consumption(request, water_id):
-    water_instance = get_object_or_404(WaterConsumption, id=water_id)
 
-    # Ensure that users can only edit their records
-    if water_instance.user != request.user:
-        return HttpResponseForbidden("You don't have permission to edit this.")
-
-    if request.method == "POST":
-        form = WaterConsumptionForm(request.POST, instance=water_instance)
-        if form.is_valid():
-            form.save()
-            return redirect("top", username=request.user.username)
-
-    else:
-        form = WaterConsumptionForm(instance=water_instance)
-
-    return render(request, "water/edit_water_consumption.html", {"form": form})
