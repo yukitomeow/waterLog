@@ -1,0 +1,16 @@
+{% load bootstrap5 %}
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Water consumption</title>
+  </head>
+  <body>
+    <form method="post">
+      {% csrf_token %} {% bootstrap_form form %}
+      <button type="submit">save</button>
+    </form>
+  </body>
+</html>
