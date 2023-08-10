@@ -9,6 +9,10 @@ from django.http import HttpResponseForbidden
 
 @login_required
 def top(request):
+    print(request)  # This will print a summary
+    print(
+        request.user.__dict__
+    )  # This will print the full dictionary representation of the request object
     username = request.user.username
     # Ensure the logged-in user can only see their records
     if request.user.username != username:

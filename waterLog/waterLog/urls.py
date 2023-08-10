@@ -24,9 +24,4 @@ urlpatterns = [
     path("", top, name="top"),
     path("water/", include("water.urls")),
     path("accounts/", include("accounts.urls")),
-    path(
-        "redirect-to-profile/",
-        redirect_to_user_profile,
-        name="redirect_to_user_profile",
-    ),
 ]
