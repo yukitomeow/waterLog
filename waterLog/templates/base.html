@@ -1,10 +1,12 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>{% block title %}Water Consumption{% endblock %}</title>
+    <title>Water Consumption</title>
 
     <!-- Add Bootstrap CSS -->
     <link
@@ -14,26 +16,34 @@
   </head>
   <body>
     <!-- Navigation Bar -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-      <a class="navbar-brand" href="{% url 'top' %}">Water Consumption</a>
-      <ul class="navbar-nav mr-md-2">
-        {% if user.is_authenticated %}
-        <li class="nave-item">
-          <a class="nav-link" href="{% url 'logout' %}">Logout</a>
-        </li>
-        {% else %}
-        <li class="nave-item">
-          <a class="nav-link" href="{% url 'login' %}">Login</a>
-        </li>
-        {% endif %}
-      </ul>
-    </nav>
+    <header>
+      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="{% url 'top' %}">Water Consumption</a>
+        <ul class="navbar-nav mr-md-2">
+          {% if user.is_authenticated %}
+          <li class="nave-item">
+            <a class="nav-link" href="{% url 'logout' %}">Logout</a>
+          </li>
+          {% else %}
+          <li class="nave-item">
+            <a class="nav-link" href="{% url 'login' %}">Login</a>
+          </li>
+          {% endif %}
+        </ul>
+      </nav>
+    </header>
 
     <!-- Main Content -->
-    <div class="container mt-5">{% block content %}{% endblock %}</div>
-
+    <main>
+      <div class="container mt-5">{% block content %}{% endblock %}</div>
+    </main>
     <!-- Add Bootstrap JS and Popper.js for Bootstrap functionalities -->
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.min.js"></script>
+
+    <footer>
+      <!-- Site footer -->
+    </footer>
+    {% block extra_scripts %}{% endblock %}
   </body>
 </html>
