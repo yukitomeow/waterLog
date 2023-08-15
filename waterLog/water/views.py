@@ -1,6 +1,7 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.contrib.auth.decorators import login_required
 from water.models import WaterConsumption
+from accounts.models import UserProfile
 from water.forms import WaterConsumptionForm
 from django.db.models import Sum
 from datetime import date
@@ -28,6 +29,8 @@ def top(request):
         or 0
     )
 
+    userprofile = UserProfile.objects.filter(user=request.user).first()
+    unit = userprofile.unit if userprofile and userprofile.unit else 'ml'
     if request.method == "POST":
         form = WaterConsumptionForm(request.POST)
         if form.is_valid():
@@ -53,6 +56,7 @@ def top(request):
         "username": username,
         "date": today,
         "form": form,
+        "unit":unit,
     }
 
     return render(request, "water/top.html", context)
