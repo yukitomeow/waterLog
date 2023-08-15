@@ -6,3 +6,4 @@ class WaterConsumptionForm(ModelForm):
     class Meta:
         model= WaterConsumption
         fields=('amount_drank',)
+

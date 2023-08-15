@@ -57,7 +57,7 @@ def top(request):
 
     return render(request, "water/top.html", context)
 
-
+ 
 @login_required
 def top_new(request):
     today = date.today()

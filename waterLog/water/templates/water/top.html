@@ -9,7 +9,7 @@
   <!-- Always display the form to add more water consumption -->
   <h3>Add More Water Consumption</h3>
   <form method="post">
-    {% csrf_token %} {{ form.as_p }}
+    {% csrf_token %} {{ form.as_p }} 
     <button type="submit">Add Water Consumption</button>
   </form>
 </div>
@@ -17,9 +17,9 @@
 <!-- React Component will be rendered below -->
 <div id="react-root"></div>
 {% endblock %} {% block extra_scripts %}
-<script src="{% static 'js/bundle.js' %}"></script>
-<script>
-  const element = React.createElement;
-  ReactDOM.render(element(App), document.getElementById("react-root"));
-</script>
+<script>console.log()</script>
+
+
 {% endblock %}
+
+

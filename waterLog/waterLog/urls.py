@@ -19,9 +19,19 @@ from django.urls import path, include
 from water.views import top
 from accounts.views import redirect_to_user_profile
 
+from django.conf import settings
+from django.conf.urls.static import static
+
 urlpatterns = [
     path("admin/", admin.site.urls),
     path("", top, name="top"),
     path("water/", include("water.urls")),
     path("accounts/", include("accounts.urls")),
 ]
+
+# Only serve static files this way in a development environment!
+if settings.DEBUG:
+    urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+
+
+
