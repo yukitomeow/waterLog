@@ -9,7 +9,10 @@
   <!-- Always display the form to add more water consumption -->
   <h3>Add More Water Consumption</h3>
   <form method="post">
-    {% csrf_token %} {{ form.as_p }} 
+    {% csrf_token %} 
+    <div class="form-field">
+      {{ form.as_p }}{{unit}}
+  </div>
     <button type="submit">Add Water Consumption</button>
   </form>
 </div>
@@ -18,6 +21,13 @@
 <div id="react-root"></div>
 {% endblock %} {% block extra_scripts %}
 <script>console.log()</script>
+
+<style>
+  .form-field > p {
+      display: inline-block;
+      margin-right: 10px;
+  }
+</style>
 
 
 {% endblock %}
