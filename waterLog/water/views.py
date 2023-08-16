@@ -19,6 +19,9 @@ def top(request):
 
     today = date.today()
 
+    today_record = WaterConsumption.objects.filter(user=request.user, date=today).first()
+    today_record_id = today_record.id if today_record else None
+
     # Retrieve today's total water consumption for the user
     water_today = (
         WaterConsumption.objects.filter(user=request.user, date=today).aggregate(
@@ -55,6 +58,7 @@ def top(request):
         "date": today,
         "form": form,
         "unit":unit,
+        "record_id": today_record_id,
     }
 
     return render(request, "water/top.html", context)
@@ -102,3 +106,5 @@ def dashboard(request):
         'average_consumption_per_day':average_consumption_per_day,
     }
     return render(request, 'water/dashboard.html', context)
+
+
