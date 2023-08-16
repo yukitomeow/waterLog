@@ -1,8 +1,9 @@
 {% extends "base.html" %}
 
 {% block content %}
-    <h2>Water Consumption Dashboard</h2>
-    <table class="table">
+    <h2>{{username}}'s Water Consumption {{current_month_abbr}} {{current_year}}</h2>
+    <h3>Average water consumption a day: {{average_consumption_per_day}} {{unit}}</h3>
+    <!-- <table class="table">
         <thead>
             <tr>
                 <th>Day</th>
@@ -18,5 +19,46 @@
                 </tr>
             {% endfor %}
         </tbody>
-    </table>
+    </table> -->
+    <canvas id="myChart" width="400" height="200"></canvas>
+
+   
+         
+
 {% endblock %}
+
+{% block extra_scripts %}
+
+<script>
+    const ctx = document.getElementById('myChart');
+  
+    new Chart(ctx, {
+      type: 'bar',
+      data: {
+        labels: [{% for day, amount in daily_consumption %}'{{ day }}'{% if not forloop.last %}, {% endif %}{% endfor %}],
+        
+        datasets: [{
+          label: 'Amount Consumed ({{ unit }})',
+          data: [{% for day, amount in daily_consumption %}{{ amount }}{% if not forloop.last %}, {% endif %}{% endfor %}],
+          borderColor: 'rgba(75, 192, 192, 1)',
+          borderWidth: 2,
+          fill: false
+
+        }]
+      },
+      options: {
+        scales: {
+          y: {
+            beginAtZero: true
+          }
+        }
+      }
+    });
+  </script>
+    
+
+
+    
+{% endblock %}
+
+

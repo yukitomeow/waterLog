@@ -7,14 +7,11 @@ from django.db.models import Sum
 from datetime import date
 from django.http import HttpResponseForbidden
 from collections import defaultdict
+from calendar import monthrange
 
 
 @login_required
 def top(request):
-    print(request)  # This will print a summary
-    print(
-        request.user.__dict__
-    )  # This will print the full dictionary representation of the request object
     username = request.user.username
     # Ensure the logged-in user can only see their records
     if request.user.username != username:
@@ -80,7 +77,10 @@ def dashboard(request):
 
 @login_required
 def dashboard(request):
+    username = request.user.username
     current_month = date.today().month
+    current_month_abbr = date.today().strftime('%b')
+    current_year = date.today().year
     user_water_records = WaterConsumption.objects.filter(user=request.user, date__month=current_month)
     userprofile = UserProfile.objects.filter(user=request.user).first()
     unit = userprofile.unit if userprofile and userprofile.unit else 'ml'
@@ -88,9 +88,17 @@ def dashboard(request):
     daily_consumption = defaultdict(float)
     for record in user_water_records:
         daily_consumption[record.date.day] += record.amount_drank
+
+    total_consumption = sum(daily_consumption.values())
+    days_in_month = monthrange(current_year, current_month)[1]
+    average_consumption_per_day = round(total_consumption / days_in_month)
     
     context = {
+        "username":username,
+        'current_month_abbr':current_month_abbr,
         'daily_consumption': sorted(daily_consumption.items()),
-        'unit':unit
+        'unit':unit,
+        'current_year':current_year,
+        'average_consumption_per_day':average_consumption_per_day,
     }
     return render(request, 'water/dashboard.html', context)
