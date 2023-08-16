@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h2>Water Consumption Dashboard</h2>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Day</th>
+                <th>Amount Consumed</th>
+           
+            </tr>
+        </thead>
+        <tbody>
+            {% for day, amount in daily_consumption %}
+                <tr>
+                    <td>{{ day }}</td>
+                    <td>{{ amount }} {{unit}}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

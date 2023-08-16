@@ -6,6 +6,7 @@ from water.forms import WaterConsumptionForm
 from django.db.models import Sum
 from datetime import date
 from django.http import HttpResponseForbidden
+from collections import defaultdict
 
 
 @login_required
@@ -61,22 +62,35 @@ def top(request):
 
     return render(request, "water/top.html", context)
 
- 
 @login_required
-def top_new(request):
-    today = date.today()
+def dashboard(request):
+    current_month = date.today().month
+    user_water_records = WaterConsumption.objects.filter(user=request.user, date__month=current_month)
+    
+    # Create a dictionary to hold the total consumption for each day of the month.
+    daily_consumption = defaultdict(float)
+    for record in user_water_records:
+        daily_consumption[record.date.day] += record.amount_drank
+    
+    context = {
+        'daily_consumption': sorted(daily_consumption.items())
+    }
+    return render(request, 'dashboard.html', context)
 
-    # If there's a POST request, try to save the new water consumption
-    if request.method == "POST":
-        form = WaterConsumptionForm(request.POST)
-        if form.is_valid():
-            water = form.save(commit=False)
-            water.user = request.user
-            water.date = today  # set today's date
-            water.save()
-            return redirect("top", username=request.user.username)
 
-    else:
-        form = WaterConsumptionForm()
-
-    return render(request, "water/top_new.html", {"form": form})
+@login_required
+def dashboard(request):
+    current_month = date.today().month
+    user_water_records = WaterConsumption.objects.filter(user=request.user, date__month=current_month)
+    userprofile = UserProfile.objects.filter(user=request.user).first()
+    unit = userprofile.unit if userprofile and userprofile.unit else 'ml'
+    # Create a dictionary to hold the total consumption for each day of the month.
+    daily_consumption = defaultdict(float)
+    for record in user_water_records:
+        daily_consumption[record.date.day] += record.amount_drank
+    
+    context = {
+        'daily_consumption': sorted(daily_consumption.items()),
+        'unit':unit
+    }
+    return render(request, 'water/dashboard.html', context)
