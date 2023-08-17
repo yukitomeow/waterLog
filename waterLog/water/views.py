@@ -8,7 +8,14 @@ from datetime import date
 from django.http import HttpResponseForbidden
 from collections import defaultdict
 from calendar import monthrange
+from django.utils.translation import gettext as _
+from django.utils import translation
 
+def set_language(request, language_code):
+    response = redirect(request.META.get('HTTP_REFERER', '/'))
+    response.set_cookie(translation.LANGUAGE_COOKIE_NAME, language_code)
+    translation.activate(language_code)
+    return response
 
 
 
@@ -54,6 +61,7 @@ def top(request):
         WaterConsumptionForm()
     )  # Always provide an empty form for adding new water consumption
 
+    title= _("Water Consumption for Today")
     context = {
         "total_water_today": water_today,
         "username": username,
@@ -61,6 +69,7 @@ def top(request):
         "form": form,
         "unit":unit,
         "record_id": today_record_id,
+        "title":title,
     }
 
     return render(request, "water/top.html", context)
