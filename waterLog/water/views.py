@@ -10,6 +10,8 @@ from collections import defaultdict
 from calendar import monthrange
 
 
+
+
 @login_required
 def top(request):
     username = request.user.username

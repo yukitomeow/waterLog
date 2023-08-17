@@ -12,6 +12,8 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 
 from pathlib import Path
 import os
+from django.utils.translation import gettext_lazy as _
+
 
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -58,6 +60,15 @@ MIDDLEWARE = [
     'django.middleware.common.CommonMiddleware'
 ]
 
+
+USE_L10N = True
+
+LANGUAGES = [
+    ('en', _('English')),
+    ('ja', _('Japanese')),
+]
+
+
 ROOT_URLCONF = "waterLog.urls"
 
 TEMPLATES = [
@@ -71,6 +82,7 @@ TEMPLATES = [
                 "django.template.context_processors.request",
                 "django.contrib.auth.context_processors.auth",
                 "django.contrib.messages.context_processors.messages",
+                "django.template.context_processors.i18n"
             ],
         },
     },
