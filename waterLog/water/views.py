@@ -11,16 +11,12 @@ from calendar import monthrange
 from django.utils.translation import gettext as _
 from django.utils import translation
 
-def set_language(request, language_code):
-    response = redirect(request.META.get('HTTP_REFERER', '/'))
-    response.set_cookie(translation.LANGUAGE_COOKIE_NAME, language_code)
-    translation.activate(language_code)
-    return response
 
 
 
 @login_required
-def top(request):
+def top(request, language_code):
+    translation.activate(language_code)
     username = request.user.username
     # Ensure the logged-in user can only see their records
     if request.user.username != username:
@@ -74,24 +70,10 @@ def top(request):
 
     return render(request, "water/top.html", context)
 
-@login_required
-def dashboard(request):
-    current_month = date.today().month
-    user_water_records = WaterConsumption.objects.filter(user=request.user, date__month=current_month)
-    
-    # Create a dictionary to hold the total consumption for each day of the month.
-    daily_consumption = defaultdict(float)
-    for record in user_water_records:
-        daily_consumption[record.date.day] += record.amount_drank
-    
-    context = {
-        'daily_consumption': sorted(daily_consumption.items())
-    }
-    return render(request, 'dashboard.html', context)
-
 
 @login_required
-def dashboard(request):
+def dashboard(request, language_code):
+    translation.activate(language_code)
     username = request.user.username
     current_month = date.today().month
     current_month_abbr = date.today().strftime('%b')
