@@ -12,9 +12,6 @@ from django.utils.translation import gettext as _
 from django.utils import translation
 from django.contrib import messages
 
-
-
-
 @login_required
 def top(request, ):
    

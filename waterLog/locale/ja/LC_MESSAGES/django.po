@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-08-19 15:35+0900\n"
+"POT-Creation-Date: 2023-08-19 21:48+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,6 +17,28 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
+
+#: templates/base.html:25
+#, fuzzy
+#| msgid "Add Water Consumption"
+msgid "Water Consumption"
+msgstr "水分摂取量を足す"
+
+#: templates/base.html:26
+msgid "Dashboard"
+msgstr "ダッシュボード"
+
+#: templates/base.html:30
+msgid "Logout"
+msgstr "ログアウト"
+
+#: templates/base.html:34
+msgid "Login"
+msgstr "ログイン"
+
+#: templates/base.html:37
+msgid "Register"
+msgstr "新規登録"
 
 #: water/templates/water/top.html:9
 msgid "Water Consumption for Today"
