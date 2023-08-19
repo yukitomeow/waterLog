@@ -1,5 +1,5 @@
 from django.contrib.auth.views import LoginView, LogoutView
-from django.urls import path
+from django.urls import path, include
 from . import views
 
 urlpatterns = [
@@ -11,5 +11,7 @@ urlpatterns = [
         name="login",
     ),
     path("logout/", LogoutView.as_view(), name="logout"),
-     path("register/", views.register, name="register"),  # Adding the registration path
+    path("register/", views.register, name="register"),  # Adding the registration path
+    path('i18n/', include('django.conf.urls.i18n')),
+
 ]

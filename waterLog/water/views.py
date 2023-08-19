@@ -16,8 +16,8 @@ from django.contrib import messages
 
 
 @login_required
-def top(request, language_code):
-    translation.activate(language_code)
+def top(request, ):
+   
     username = request.user.username
     # Ensure the logged-in user can only see their records
     if request.user.username != username:
@@ -56,13 +56,7 @@ def top(request, language_code):
 
     form = (
         WaterConsumptionForm()
-    )  # Always provide an empty form for adding new water consumption
-
-    # title= _("Water Consumption for Today")
-    # yukimi= _("yukimi")
-    # messages.add_message(request, messages.SUCCESS, title, yukimi)
-
-    # List of strings to be translated and added as messages
+    )  
     strings_to_translate = [
         "Water Consumption Log",
         "Water Consumption for Today", 
@@ -89,8 +83,8 @@ def top(request, language_code):
 
 
 @login_required
-def dashboard(request, language_code):
-    translation.activate(language_code)
+def dashboard(request):
+  
     username = request.user.username
     current_month = date.today().month
     current_month_abbr = date.today().strftime('%b')

@@ -72,6 +72,7 @@ LOCALE_PATHS = [
     os.path.join(BASE_DIR, 'locale'),
 ]
 
+PREFIX_DEFAULT_LANGUAGE = False
 
 
 ROOT_URLCONF = "waterLog.urls"
