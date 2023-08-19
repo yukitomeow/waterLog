@@ -1,11 +1,17 @@
 {% extends "base.html" %} {% load static %} {% load i18n %}
+
+
+
 {% block title %}Water Consumption Log{% endblock %}{% block content %}
+
+
 <div class="container">
-  <h2>{% trans "Water Consumption for Today" %}</h2>
-  <p><strong>Username:</strong> {{ username }}</p>
-  <p><strong>Date:</strong> {{ date }}</p>
+  <h2>{% trans "Water Consumption for Today"  %}</h2>
+
+  <p><strong>{% trans "Username" %}:</strong> {{ username }}</p>
+  <p><strong>{% trans "Date" %}:</strong> {{ date }}</p>
   <p>
-    <strong>Total Water Consumed Today:</strong>
+    <strong>{% trans "Total Water Consumed Today" %}:</strong>
     <span id="totalWater">{{ total_water_today }}</span> {{unit}}
    
   </p>
@@ -14,13 +20,13 @@
   
 
   <!-- Always display the form to add more water consumption -->
-  <h3>Add More Water Consumption</h3>
+  <h3>{% trans "Add More Water Consumption" %}</h3>
   <form method="post">
     {% csrf_token %} 
     <div class="form-field">
       {{ form.as_p }}{{unit}}
   </div>
-    <button type="submit">Add Water Consumption</button>
+    <button type="submit">{% trans "Add Water Consumption" %}</button>
   </form>
 </div>
 

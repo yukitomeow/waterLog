@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-08-17 17:39+0900\n"
+"POT-Creation-Date: 2023-08-19 15:35+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,9 +17,30 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-#: water/templates/water/top.html:4 water/views.py:59
+
+#: water/templates/water/top.html:9
 msgid "Water Consumption for Today"
-msgstr "今日の水分摂取量"
+msgstr "本日の水分摂取量"
+
+#: water/templates/water/top.html:11
+msgid "Username"
+msgstr "ユーザーネーム"
+
+#: water/templates/water/top.html:12
+msgid "Date"
+msgstr "日付"
+
+#: water/templates/water/top.html:14
+msgid "Total Water Consumed Today"
+msgstr "本日の水分摂取量合計"
+
+#: water/templates/water/top.html:23
+msgid "Add More Water Consumption"
+msgstr "水分摂取量を足す"
+
+#: water/templates/water/top.html:29
+msgid "Add Water Consumption"
+msgstr "水分摂取量を足す"
 
 #: waterLog/settings.py:67
 msgid "English"

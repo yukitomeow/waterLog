@@ -10,6 +10,7 @@ from collections import defaultdict
 from calendar import monthrange
 from django.utils.translation import gettext as _
 from django.utils import translation
+from django.contrib import messages
 
 
 
@@ -57,7 +58,24 @@ def top(request, language_code):
         WaterConsumptionForm()
     )  # Always provide an empty form for adding new water consumption
 
-    title= _("Water Consumption for Today")
+    # title= _("Water Consumption for Today")
+    # yukimi= _("yukimi")
+    # messages.add_message(request, messages.SUCCESS, title, yukimi)
+
+    # List of strings to be translated and added as messages
+    strings_to_translate = [
+        "Water Consumption Log",
+        "Water Consumption for Today", 
+        "Username", 
+        "Date",
+        "Total Water Consumed Today",
+        "Add More Water Consumption",
+        "Add Water Consumption",
+        ]
+    for string in strings_to_translate:
+        translated_string = _(string)
+        messages.add_message(request, messages.SUCCESS, translated_string)
+
     context = {
         "total_water_today": water_today,
         "username": username,
@@ -65,7 +83,6 @@ def top(request, language_code):
         "form": form,
         "unit":unit,
         "record_id": today_record_id,
-        "title":title,
     }
 
     return render(request, "water/top.html", context)
