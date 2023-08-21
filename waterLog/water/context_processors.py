@@ -9,6 +9,9 @@ def translated_message(request):
         "Logout",
         "Login", 
         "Register",
+        "Change language",
+        "EN",
+        "JP"
         ]
     for string in strings_to_translate:
         translated_string = _(string)

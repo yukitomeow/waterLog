@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-08-19 21:48+0900\n"
+"POT-Creation-Date: 2023-08-21 17:06+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,11 +18,40 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
+#: accounts/forms.py:12
+msgid "Email"
+msgstr "メールアドレス"
+
+#: accounts/forms.py:13
+msgid "Please enter a valid email address."
+msgstr "正しいメールアドレスを入力してください"
+
+#: accounts/forms.py:19
+msgid "Unit"
+msgstr "単位"
+
+#: accounts/forms.py:20
+msgid "Please select your preferred unit."
+msgstr "お使いになりたい単位を選択してください"
+
+#: accounts/models.py:8
+msgid "Milliliters"
+msgstr "ミリリットル"
+
+#: accounts/models.py:9
+msgid "Ounces"
+msgstr "オンス"
+
+#: accounts/templates/accounts/registration.html:5
+#: accounts/templates/accounts/registration.html:9 templates/base.html:37
+msgid "Register"
+msgstr "新規登録"
+
 #: templates/base.html:25
 #, fuzzy
 #| msgid "Add Water Consumption"
 msgid "Water Consumption"
-msgstr "水分摂取量を足す"
+msgstr "水分摂取"
 
 #: templates/base.html:26
 msgid "Dashboard"
@@ -36,38 +65,46 @@ msgstr "ログアウト"
 msgid "Login"
 msgstr "ログイン"
 
-#: templates/base.html:37
-msgid "Register"
-msgstr "新規登録"
+#: templates/base.html:57
+msgid "Change language"
+msgstr "言語変更"
 
-#: water/templates/water/top.html:9
+#: templates/base.html:61
+msgid "EN"
+msgstr "英語"
+
+#: templates/base.html:62
+msgid "JA"
+msgstr "日本語"
+
+#: water/templates/water/top.html:6
 msgid "Water Consumption for Today"
 msgstr "本日の水分摂取量"
 
-#: water/templates/water/top.html:11
+#: water/templates/water/top.html:7
 msgid "Username"
 msgstr "ユーザーネーム"
 
-#: water/templates/water/top.html:12
+#: water/templates/water/top.html:8
 msgid "Date"
 msgstr "日付"
 
-#: water/templates/water/top.html:14
+#: water/templates/water/top.html:10
 msgid "Total Water Consumed Today"
 msgstr "本日の水分摂取量合計"
 
-#: water/templates/water/top.html:23
+#: water/templates/water/top.html:15
 msgid "Add More Water Consumption"
 msgstr "水分摂取量を足す"
 
-#: water/templates/water/top.html:29
+#: water/templates/water/top.html:21
 msgid "Add Water Consumption"
 msgstr "水分摂取量を足す"
 
 #: waterLog/settings.py:67
 msgid "English"
-msgstr ""
+msgstr "英語"
 
 #: waterLog/settings.py:68
 msgid "Japanese"
-msgstr ""
+msgstr "日本語"

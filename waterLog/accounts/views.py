@@ -2,9 +2,9 @@ from django.shortcuts import render, redirect
 from .forms import RegistrationForm
 from accounts.models import UserProfile
 from django.contrib.auth.decorators import login_required
-
-
 from django.contrib.auth import authenticate, login
+from django.utils.translation import gettext as _
+from django.contrib import messages
 
 
 
@@ -36,6 +36,19 @@ def register(request):
 
     else:
         form = RegistrationForm()
+
+    strings_to_translate = [
+        "Water Consumption Log",
+        "Water Consumption for Today", 
+        "Username", 
+        "Date",
+        "Total Water Consumed Today",
+        "Add More Water Consumption",
+        "Add Water Consumption",
+        ]
+    for string in strings_to_translate:
+        translated_string = _(string)
+        messages.add_message(request, messages.SUCCESS, translated_string)
 
     context = {
         'form': form,

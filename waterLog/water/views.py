@@ -9,7 +9,6 @@ from django.http import HttpResponseForbidden
 from collections import defaultdict
 from calendar import monthrange
 from django.utils.translation import gettext as _
-from django.utils import translation
 from django.contrib import messages
 
 @login_required

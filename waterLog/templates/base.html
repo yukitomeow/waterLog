@@ -54,12 +54,12 @@
 
       <div class="footer">
         <div class="language-toggle">
-          <p>Change language:</p>
+          <p>{% trans "Change language" %}:</p>
           
           <form action="{% url 'set_language' %}" method="post">{% csrf_token %}
             <input type="hidden" name="next" value="{{ request.get_full_path }}">
-            <button type="submit" name="language" value="en" {% if LANGUAGE_CODE == "en" %}disabled{% endif %}>EN</button>
-            <button type="submit" name="language" value="ja" {% if LANGUAGE_CODE == "ja" %}disabled{% endif %}>JA</button>
+            <button type="submit" name="language" value="en" {% if LANGUAGE_CODE == "en" %}disabled{% endif %}>{% trans "EN" %}</button>
+            <button type="submit" name="language" value="ja" {% if LANGUAGE_CODE == "ja" %}disabled{% endif %}>{% trans "JA" %}</button>
           </form>
         </div>
       </div>

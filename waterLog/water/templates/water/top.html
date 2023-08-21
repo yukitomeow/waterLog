@@ -1,24 +1,16 @@
 {% extends "base.html" %} {% load static %} {% load i18n %}
-
-
-
 {% block title %}Water Consumption Log{% endblock %}{% block content %}
 
 
 <div class="container">
   <h2>{% trans "Water Consumption for Today"  %}</h2>
-
   <p><strong>{% trans "Username" %}:</strong> {{ username }}</p>
   <p><strong>{% trans "Date" %}:</strong> {{ date }}</p>
   <p>
     <strong>{% trans "Total Water Consumed Today" %}:</strong>
-    <span id="totalWater">{{ total_water_today }}</span> {{unit}}
-   
+    <span id="totalWater">{{ total_water_today }}</span> {{unit}} 
   </p>
   
-
-  
-
   <!-- Always display the form to add more water consumption -->
   <h3>{% trans "Add More Water Consumption" %}</h3>
   <form method="post">
@@ -33,8 +25,6 @@
 <!-- React Component will be rendered below -->
 <div id="react-root"></div>
 {% endblock %} {% block extra_scripts %}
-
-
 
 <style>
   .form-field > p {
