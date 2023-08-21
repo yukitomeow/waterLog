@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-08-21 17:06+0900\n"
+"POT-Creation-Date: 2023-08-21 17:25+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -42,6 +42,14 @@ msgstr "ミリリットル"
 msgid "Ounces"
 msgstr "オンス"
 
+#: accounts/templates/accounts/login.html:6 templates/base.html:34
+msgid "Login"
+msgstr "ログイン"
+
+#: accounts/templates/accounts/login.html:11
+msgid "Submit"
+msgstr "送信"
+
 #: accounts/templates/accounts/registration.html:5
 #: accounts/templates/accounts/registration.html:9 templates/base.html:37
 msgid "Register"
@@ -60,10 +68,6 @@ msgstr "ダッシュボード"
 #: templates/base.html:30
 msgid "Logout"
 msgstr "ログアウト"
-
-#: templates/base.html:34
-msgid "Login"
-msgstr "ログイン"
 
 #: templates/base.html:57
 msgid "Change language"
