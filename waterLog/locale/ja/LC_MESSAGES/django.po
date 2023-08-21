@@ -56,10 +56,8 @@ msgid "Register"
 msgstr "新規登録"
 
 #: templates/base.html:25
-#, fuzzy
-#| msgid "Add Water Consumption"
 msgid "Water Consumption"
-msgstr "水分摂取"
+msgstr "水分摂取量"
 
 #: templates/base.html:26
 msgid "Dashboard"
