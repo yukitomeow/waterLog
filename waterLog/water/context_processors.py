@@ -9,8 +9,8 @@ def translated_message(request):
         "Logout",
         "Login", 
         "Register",
-        "Change language",
-        "EN",
+        "言語変更",
+        "英語",
         "JP",
         "Submit"
         ]

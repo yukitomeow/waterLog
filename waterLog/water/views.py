@@ -11,6 +11,8 @@ from calendar import monthrange
 from django.utils.translation import gettext as _
 from django.contrib import messages
 
+from django.utils.dateformat import DateFormat
+
 @login_required
 def top(request, ):
    
@@ -82,10 +84,17 @@ def top(request, ):
 def dashboard(request):
   
     username = request.user.username
-    current_month = date.today().month
-    current_month_abbr = date.today().strftime('%b')
-    current_year = date.today().year
-    user_water_records = WaterConsumption.objects.filter(user=request.user, date__month=current_month)
+    current_date = date.today()
+   
+    # current_month_abbr = date.today().strftime('%b')
+    # current_year = date.today().year
+
+    # Setting the active language to Japanese
+    
+    df = DateFormat(current_date)
+    current_month_abbr = df.format('M')  # This will give you the month abbreviation in Japanese.
+    current_year = df.format('Y')  # This will give you the year in Japanese.
+    user_water_records = WaterConsumption.objects.filter(user=request.user, date__month=current_date.month)
     userprofile = UserProfile.objects.filter(user=request.user).first()
     unit = userprofile.unit if userprofile and userprofile.unit else 'ml'
     # Create a dictionary to hold the total consumption for each day of the month.
@@ -94,8 +103,30 @@ def dashboard(request):
         daily_consumption[record.date.day] += record.amount_drank
 
     total_consumption = sum(daily_consumption.values())
-    days_in_month = monthrange(current_year, current_month)[1]
+    days_in_month = monthrange(current_date.year, current_date.month)[1]
     average_consumption_per_day = round(total_consumption / days_in_month)
+
+    # strings_to_translate = [
+    #         "{username}'s Water Consumption {month} {year}",
+    # "Average water consumption a day: {average} {unit}",
+    # "Amount Consumed", 
+    #     ]
+    # for string in strings_to_translate:
+    #     if string == "{username}'s Water Consumption {month} {year}":
+    #         translated_string = _(string).format(username=username, month=current_month_abbr, year=current_year)
+    #     elif string == "Average water consumption a day: {average} {unit}":
+    #         translated_string = _(string).format(average=average_consumption_per_day, unit=unit)
+    #     else:
+    #         translated_string = _(string)
+    #     messages.add_message(request, messages.SUCCESS, translated_string)
+    title_string = _("{username}'s Water Consumption {month} {year}")
+    translated_title = title_string.format(username=username, month=current_month_abbr, year=current_year)
+
+    average_string = _("Average water consumption a day: {average} {unit}")
+    translated_average = average_string.format(average=average_consumption_per_day, unit=unit)
+
+    amount_consumed_string = _("Amount Consumed")
+
     
     context = {
         "username":username,
@@ -104,6 +135,9 @@ def dashboard(request):
         'unit':unit,
         'current_year':current_year,
         'average_consumption_per_day':average_consumption_per_day,
+            'translated_title': translated_title,
+    'translated_average': translated_average,
+    'amount_consumed': amount_consumed_string,
     }
     return render(request, 'water/dashboard.html', context)
 

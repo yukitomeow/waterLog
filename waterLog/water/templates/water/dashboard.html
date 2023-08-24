@@ -1,8 +1,11 @@
 {% extends "base.html" %}
+{% load i18n %}
 
 {% block content %}
-    <h2>{{username}}'s Water Consumption {{current_month_abbr}} {{current_year}}</h2>
-    <h3>Average water consumption a day: {{average_consumption_per_day}} {{unit}}</h3>
+
+    
+<h2>{{ translated_title }}</h2>
+<h3>{{ translated_average }}</h3>
     <canvas id="myChart" width="400" height="200"></canvas>
 
    
@@ -21,7 +24,7 @@
         labels: [{% for day, amount in daily_consumption %}'{{ day }}'{% if not forloop.last %}, {% endif %}{% endfor %}],
         
         datasets: [{
-          label: 'Amount Consumed ({{ unit }})',
+          label: '{{ amount_consumed }} ({{ unit }})',
           data: [{% for day, amount in daily_consumption %}{{ amount }}{% if not forloop.last %}, {% endif %}{% endfor %}],
           borderColor: 'rgba(75, 192, 192, 1)',
           borderWidth: 2,
