@@ -11,5 +11,6 @@ class WaterConsumption(models.Model):
 
     def __str__(self):
         return f"User: {self.user}, {_('Amount Drank')}: {self.amount_drank}, Date: {self.date}"
+
         
    

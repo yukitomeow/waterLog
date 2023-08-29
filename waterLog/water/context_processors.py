@@ -12,7 +12,8 @@ def translated_message(request):
         "言語変更",
         "英語",
         "JP",
-        "Submit"
+        "Submit",
+        "Amount drank"
         ]
     for string in strings_to_translate:
         translated_string = _(string)
