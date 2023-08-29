@@ -22,3 +22,41 @@
     }
 }
 
+.footer .language-toggle {
+    display: flex;
+    align-items: center; /* 要素を中央揃えにする */
+}
+
+.footer .language-toggle p {
+    margin-right: 10px; /* 「言語変更」とボタンの間のスペース */
+}
+
+.footer .language-toggle button {
+    margin-right: 5px; /* ボタン間のスペース */
+}
+
+.footer {
+    position: fixed;
+    right: 0;
+    bottom: 10px; /* 例として、画面の下から10pxの位置に配置しています。 */
+    padding: 5px; /* 任意のパディングを追加してスタイルを調整することができます。 */
+}
+
+.footer .language-toggle button {
+    background: none;      /* 背景を削除 */
+    border: none;          /* ボーダーを削除 */
+    color: inherit;        /* 親要素と同じ文字色を使用 */
+    padding: 0;            /* パディングを削除 */
+    font: inherit;         /* 親要素と同じフォントを使用 */
+    cursor: pointer;       /* マウスカーソルをポインタに */
+    text-decoration: none; /* 下線などの装飾を削除 */
+    outline: none;         /* フォーカス時のアウトラインを削除 */
+}
+
+.footer .language-toggle button:hover,
+.footer .language-toggle button:focus {
+    color: #007BFF; /* ホバーやフォーカス時の色。任意で変更可能 */
+    text-decoration: underline; /* ホバーやフォーカス時に下線を追加 */
+}
+
+

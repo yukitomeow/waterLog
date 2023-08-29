@@ -59,11 +59,12 @@
 
       <div class="footer">
         <div class="language-toggle">
-          <p>{% trans "言語変更" %}:</p>
+          <!-- <p>{% trans "言語変更" %}:</p> -->
           
           <form action="{% url 'set_language' %}" method="post">{% csrf_token %}
             <input type="hidden" name="next" value="{{ request.get_full_path }}">
             <button type="submit" name="language" value="en" {% if LANGUAGE_CODE == "en" %}disabled{% endif %}>{% trans "EN" %}</button>
+            /
             <button type="submit" name="language" value="ja" {% if LANGUAGE_CODE == "ja" %}disabled{% endif %}>{% trans "日本語" %}</button>
           </form>
         </div>
