@@ -59,4 +59,46 @@
     text-decoration: underline; /* ホバーやフォーカス時に下線を追加 */
 }
 
+.bg-light {
+    background-color:  #000080 !important;
+}
+
+
+
+body {
+    color: #FAFAFA;
+    background-color:  #000080
+    /* background-color: #FAFAFA; */
+}
+
+
+.navbar-coral-text {
+    color: #FAFAFA!important; /* Using !important to ensure the color is applied even if other styles exist. */
+}
+
+.navbar-coral-text:hover {
+    color:  #FAFAFA;
+}
+.navbar-coral-text:active {
+    color: #FAFAFA;
+}
+.navbar-coral-text:visited {
+    color: #FAFAFA;
+}
+
+input {
+    color: #000080;
+  }
+  
+  .btn-primary {
+    background-color: #FF8585;
+    border-color: #FF8585;
+  }
+  .btn-primary:hover {
+    background-color: #FF8585;
+    border-color: #FF8585;
+  }
+  
+
+
 

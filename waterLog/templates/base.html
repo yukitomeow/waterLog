@@ -25,24 +25,24 @@
 
     <header>
       <nav class="navbar navbar-expand-lg navbar-light bg-light">
-          <a class="navbar-brand" href="{% url 'top'  %}">{% trans "Water Consumption" %}</a>
-          <a class="navbar-nav dashboard-link" href="{% url 'dashboard' %}">{% trans "Dashboard" %}</a> <!-- Moved here -->
-          <ul class="navbar-nav ms-auto"> <!-- Add the ml-auto class here -->
+        <a class="navbar-brand navbar-coral-text" href="{% url 'top'  %}">{% trans "Water Consumption" %}</a>
+        <a class="navbar-nav dashboard-link navbar-coral-text" href="{% url 'dashboard' %}">{% trans "Dashboard" %}</a>
+        <ul class="navbar-nav ms-auto">
             {% if user.is_authenticated %}
             <li class="nav-item">
-                <a class="nav-link" href="{% url 'logout'  %}">{% trans "Logout" %}</a>
+                <a class="nav-link navbar-coral-text" href="{% url 'logout'  %}">{% trans "Logout" %}</a>
             </li>
             {% else %}
             <li class="nav-item">
-                <a class="nav-link" href="{% url 'login'   %}">{% trans "Login" %}</a>
+                <a class="nav-link navbar-coral-text" href="{% url 'login'   %}">{% trans "Login" %}</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="{% url 'register'   %}">{% trans "Register" %}</a>
+                <a class="nav-link navbar-coral-text" href="{% url 'register'   %}">{% trans "Register" %}</a>
             </li>
             {% endif %}
-          </ul>
-        
-      </nav>
+        </ul>
+    </nav>
+    
   </header>
   
 
@@ -54,7 +54,7 @@
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.min.js"></script>
 
-    <footer>
+    <footer class="bg-light">
 
 
       <div class="footer">
