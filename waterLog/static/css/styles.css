@@ -66,35 +66,35 @@
 
 .footer .language-toggle button:hover,
 .footer .language-toggle button:focus {
-    color: #007BFF; /* ホバーやフォーカス時の色。任意で変更可能 */
+    color: #F26A66; /* ホバーやフォーカス時の色。任意で変更可能 */
     text-decoration: underline; /* ホバーやフォーカス時に下線を追加 */
 }
 
 .bg-light {
-    background-color:  #000080 !important;
+    background-color:  #F2827F !important;
 }
 
 
 
 body {
-    color: #FAFAFA;
-    background-color:  #000080
-    /* background-color: #FAFAFA; */
+    color: #000080;
+    background-color:  #F2827F
+    /* background-color: #000080; */
 }
 
 
 .navbar-coral-text {
-    color: #FAFAFA!important; /* Using !important to ensure the color is applied even if other styles exist. */
+    color: #000080!important; /* Using !important to ensure the color is applied even if other styles exist. */
 }
 
 .navbar-coral-text:hover {
-    color:  #FAFAFA;
+    color:  #000080;
 }
 .navbar-coral-text:active {
-    color: #FAFAFA;
+    color: #000080;
 }
 .navbar-coral-text:visited {
-    color: #FAFAFA;
+    color: #000080;
 }
 
 input {
@@ -102,12 +102,14 @@ input {
   }
   
   .btn-primary {
-    background-color: #FF8585;
-    border-color: #FF8585;
+    color: #000080;
+    background-color: #72F2E7;
+    border-color: #72F2E7;
   }
   .btn-primary:hover {
-    background-color: #FF8585;
-    border-color: #FF8585;
+    color: #000080;
+    background-color: #72F2E7;
+    border-color: #72F2E7;
   }
 
   /* Assuming you don't already have a rule for your form */
