@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{% load bootstrap5 %}
 {% load i18n %}
 
 {% block content %}
@@ -8,8 +9,8 @@
             <h2>{% trans "Register" %}</h2>
             <form method="post">
                 {% csrf_token %}
-                {{ form.as_p }}
-                <button type="submit">{% trans "Register" %}</button>
+                {% bootstrap_form form %}
+                <button type="submit" class="btn btn-primary w-100">{% trans "Register" %}</button>
             </form>
         </div>
     </div>
