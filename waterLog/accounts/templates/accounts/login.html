@@ -6,14 +6,22 @@
 {% block title %}Log in{% endblock %}
 {% block content %}
 
-<h2>{% trans "Login" %}</h2>
-<form method="post">
-  {% csrf_token %}
-  <input type="hidden" name="next" vale="{{next}}" />
-  {% bootstrap_form form %} {% buttons %}
-  <button type="submit" class="btn btn-primary">{% trans "Submit" %}</button>
-  {% endbuttons %}
-</form>
+<div class="container">
+  <div class="row">
+      <div class="col-md-6 mx-auto"> <!-- 'mx-auto' centers the column -->
+          <h2>{% trans "Login to your account" %}</h2>
+          <form method="post">
+              {% csrf_token %}
+              <input type="hidden" name="next" value="{{next}}" />
+              {% bootstrap_form form%}
+              <div class="d-flex justify-content-center">
+                  <button type="submit" class="btn btn-primary w-100">{% trans "Submit" %}</button>
+              </div>
+          </form>
+      </div>
+  </div>
+</div>
+
 {% endblock %}
 
 

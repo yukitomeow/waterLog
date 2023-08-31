@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-08-24 20:54+0900\n"
+"POT-Creation-Date: 2023-08-31 09:44+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -42,40 +42,44 @@ msgstr "ミリリットル"
 msgid "Ounces"
 msgstr "オンス"
 
-#: accounts/templates/accounts/login.html:6 templates/base.html:34
-msgid "Login"
-msgstr "ログイン"
+#: accounts/templates/accounts/login.html:12
+msgid "Login to your account"
+msgstr "アカウントにログイン"
 
-#: accounts/templates/accounts/login.html:11
+#: accounts/templates/accounts/login.html:18
 msgid "Submit"
 msgstr "送信"
 
 #: accounts/templates/accounts/registration.html:5
-#: accounts/templates/accounts/registration.html:9 templates/base.html:37
+#: accounts/templates/accounts/registration.html:9 templates/base.html:40
 msgid "Register"
 msgstr "新規登録"
 
-#: templates/base.html:25
+#: templates/base.html:28
 msgid "Water Consumption"
 msgstr "水分摂取量"
 
-#: templates/base.html:26
+#: templates/base.html:29
 msgid "Dashboard"
 msgstr "ダッシュボード"
 
-#: templates/base.html:30
+#: templates/base.html:33
 msgid "Logout"
 msgstr "ログアウト"
 
-#: templates/base.html:57
+#: templates/base.html:37
+msgid "Login"
+msgstr "ログイン"
+
+#: templates/base.html:62
 msgid "言語変更"
 msgstr "Change language"
 
-#: templates/base.html:61
+#: templates/base.html:66
 msgid "EN"
 msgstr ""
 
-#: templates/base.html:62
+#: templates/base.html:68
 msgid "日本語"
 msgstr ""
 
