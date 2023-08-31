@@ -35,12 +35,23 @@
     margin-right: 5px; /* ボタン間のスペース */
 }
 
-.footer {
-    position: fixed;
-    right: 0;
-    bottom: 10px; /* 例として、画面の下から10pxの位置に配置しています。 */
-    padding: 5px; /* 任意のパディングを追加してスタイルを調整することができます。 */
+
+
+
+/* Explicitly apply padding to the footer, matching the navbar */
+.footer.container-fluid {
+    padding-left: 5vw;
+    padding-right: 5vw;
 }
+
+@media (max-width: 767px) {
+    .footer.container-fluid {
+        padding-left: 15px; /* Default padding for Bootstrap container */
+        padding-right: 15px; /* Default padding for Bootstrap container */
+    }
+}
+
+
 
 .footer .language-toggle button {
     background: none;      /* 背景を削除 */
@@ -113,6 +124,23 @@ form  {
     form {
         max-width: 550px;
     }
+}
+
+/* styles.css */
+.container-fluid {
+    max-width: 90%; /* Adjust this percentage as needed. A lower percentage will result in more side spacing */
+  }
+  
+  @media (min-width: 768px) { /* Adjust this breakpoint as needed */
+    .container-fluid {
+      padding-left: 5vw; /* Left padding as percentage of viewport width */
+      padding-right: 5vw; /* Right padding as percentage of viewport width */
+    }
+  }
+
+  .footer {
+    /* ... other styles ... */
+    padding-top: 20px;
 }
 
 
