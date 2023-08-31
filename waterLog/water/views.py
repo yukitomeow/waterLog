@@ -106,24 +106,14 @@ def dashboard(request):
     days_in_month = monthrange(current_date.year, current_date.month)[1]
     average_consumption_per_day = round(total_consumption / days_in_month)
 
-    # strings_to_translate = [
-    #         "{username}'s Water Consumption {month} {year}",
-    # "Average water consumption a day: {average} {unit}",
-    # "Amount Consumed", 
-    #     ]
-    # for string in strings_to_translate:
-    #     if string == "{username}'s Water Consumption {month} {year}":
-    #         translated_string = _(string).format(username=username, month=current_month_abbr, year=current_year)
-    #     elif string == "Average water consumption a day: {average} {unit}":
-    #         translated_string = _(string).format(average=average_consumption_per_day, unit=unit)
-    #     else:
-    #         translated_string = _(string)
-    #     messages.add_message(request, messages.SUCCESS, translated_string)
-    title_string = _("{username}'s Water Consumption {month} {year}")
-    translated_title = title_string.format(username=username, month=current_month_abbr, year=current_year)
 
-    average_string = _("Average water consumption a day: {average} {unit}")
-    translated_average = average_string.format(average=average_consumption_per_day, unit=unit)
+    
+    title_string = _("Welcome back {username} !")
+    translated_title = title_string.format(username=username, )
+
+      
+    average_string = _("Your average water intake for {month} {year} is {average} {unit}")
+    translated_average = average_string.format(month=current_month_abbr, year=current_year,average=average_consumption_per_day, unit=unit)
 
     amount_consumed_string = _("Amount Consumed")
 
@@ -135,9 +125,9 @@ def dashboard(request):
         'unit':unit,
         'current_year':current_year,
         'average_consumption_per_day':average_consumption_per_day,
-            'translated_title': translated_title,
-    'translated_average': translated_average,
-    'amount_consumed': amount_consumed_string,
+        'translated_title': translated_title,
+        'translated_average': translated_average,
+        'amount_consumed': amount_consumed_string,
     }
     return render(request, 'water/dashboard.html', context)
 

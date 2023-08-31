@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-08-31 09:44+0900\n"
+"POT-Creation-Date: 2023-08-31 17:43+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,19 +18,19 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
-#: accounts/forms.py:12
+#: accounts/forms.py:13
 msgid "Email"
 msgstr "メールアドレス"
 
-#: accounts/forms.py:13
+#: accounts/forms.py:14
 msgid "Please enter a valid email address."
 msgstr "正しいメールアドレスを入力してください"
 
-#: accounts/forms.py:19
+#: accounts/forms.py:20
 msgid "Unit"
 msgstr "単位"
 
-#: accounts/forms.py:20
+#: accounts/forms.py:21
 msgid "Please select your preferred unit."
 msgstr "お使いになりたい単位を選択してください"
 
@@ -46,28 +46,28 @@ msgstr "オンス"
 msgid "Login to your account"
 msgstr "アカウントにログイン"
 
-#: accounts/templates/accounts/login.html:18
+#: accounts/templates/accounts/login.html:20
 msgid "Submit"
 msgstr "送信"
 
-#: accounts/templates/accounts/registration.html:5
-#: accounts/templates/accounts/registration.html:9 templates/base.html:40
+#: accounts/templates/accounts/registration.html:9
+#: accounts/templates/accounts/registration.html:13 templates/base.html:41
 msgid "Register"
 msgstr "新規登録"
 
-#: templates/base.html:28
+#: templates/base.html:29
 msgid "Water Consumption"
 msgstr "水分摂取量"
 
-#: templates/base.html:29
+#: templates/base.html:30
 msgid "Dashboard"
 msgstr "ダッシュボード"
 
-#: templates/base.html:33
+#: templates/base.html:34
 msgid "Logout"
 msgstr "ログアウト"
 
-#: templates/base.html:37
+#: templates/base.html:38
 msgid "Login"
 msgstr "ログイン"
 
@@ -75,11 +75,11 @@ msgstr "ログイン"
 msgid "言語変更"
 msgstr "Change language"
 
-#: templates/base.html:66
+#: templates/base.html:68
 msgid "EN"
 msgstr ""
 
-#: templates/base.html:68
+#: templates/base.html:73
 msgid "日本語"
 msgstr ""
 
@@ -107,27 +107,30 @@ msgstr "水分摂取量を足す"
 msgid "Add Water Consumption"
 msgstr "水分摂取量を足す"
 
-#: water/views.py:122
+#: water/views.py:111
 #, python-brace-format
-msgid "{username}'s Water Consumption {month} {year}"
-msgstr "{year}年{month}の {username} さんの水分摂取量"
+msgid "Welcome back {username} !"
+msgstr "{username}さん、おかえりなさい。"
 
-#: water/views.py:125
-#, python-brace-format
-msgid "Average water consumption a day: {average} {unit}"
-msgstr "１日の平均水分摂取量: {average} {unit}"
+#: water/views.py:116
+msgid "Your average water intake for {month} {year} is {average} {unit}"
+msgstr "{year}年 {month}の１日の平均水分摂取量は {average} {unit}"
 
-#: water/views.py:128
+#: water/views.py:119
 msgid "Amount Consumed"
 msgstr "水分摂取合計量"
 
-#: waterLog/settings.py:67
+#: waterLog/settings.py:68
 msgid "English"
 msgstr "英語"
 
-#: waterLog/settings.py:68
+#: waterLog/settings.py:69
 msgid "Japanese"
 msgstr "日本語"
+
+#, python-brace-format
+#~ msgid "{username}'s Water Consumption {month} {year}"
+#~ msgstr "{year}年{month}の {username} さんの水分摂取量"
 
 #~ msgid "英語"
 #~ msgstr "EN"
