@@ -112,8 +112,11 @@ def dashboard(request):
     translated_title = title_string.format(username=username, )
 
       
-    average_string = _("Your average water intake for {month} {year} is {average} {unit}")
-    translated_average = average_string.format(month=current_month_abbr, year=current_year,average=average_consumption_per_day, unit=unit)
+    average_prefix_string = _("Your average water intake for {month} {year} is ")
+    average_value_string = _("{average} {unit}")
+    translated_average_prefix = average_prefix_string.format(month=current_month_abbr, year=current_year)
+    translated_average_value = average_value_string.format(average=average_consumption_per_day, unit=unit)
+
 
     amount_consumed_string = _("Amount Consumed")
 
@@ -126,7 +129,8 @@ def dashboard(request):
         'current_year':current_year,
         'average_consumption_per_day':average_consumption_per_day,
         'translated_title': translated_title,
-        'translated_average': translated_average,
+        'translated_average_prefix': translated_average_prefix,
+        'translated_average_value': translated_average_value,
         'amount_consumed': amount_consumed_string,
     }
     return render(request, 'water/dashboard.html', context)
