@@ -12,16 +12,31 @@ from django.utils.translation import gettext as _
 from django.contrib import messages
 
 from django.utils.dateformat import DateFormat
+from django.utils import translation
+
 
 @login_required
 def top(request, ):
-   
+    today = date.today()
+    print(today)
+    current_language = translation.get_language()
+    
+    if current_language == "en":
+        formatted_today = today.strftime('%b. %d, %Y')  # This will give "Sept. 2, 2023" for English
+    elif current_language == "ja":
+        formatted_today = today.strftime('%Y年%m月%d日')  # This will give "2023年9月2日" for Japanese
+    else:
+        formatted_today = today.strftime('%Y-%m-%d') 
+    
+    date_string = _("Your water intake for {formatted_today} is")
+    translated_date = date_string.format(formatted_today=formatted_today)
     username = request.user.username
     # Ensure the logged-in user can only see their records
     if request.user.username != username:
         return HttpResponseForbidden("You don't have permission to view this.")
 
-    today = date.today()
+    
+
 
     today_record = WaterConsumption.objects.filter(user=request.user, date=today).first()
     today_record_id = today_record.id if today_record else None
@@ -51,6 +66,11 @@ def top(request, ):
                 ).aggregate(total=Sum("amount_drank"))["total"]
                 or 0
             )
+    title_string=_("Welcome {username}!")
+    translated_title= title_string.format(username=username, )
+
+  
+
 
     form = (
         WaterConsumptionForm()
@@ -61,7 +81,7 @@ def top(request, ):
         "Username", 
         "Date",
         "Total Water Consumed Today",
-        "Add More Water Consumption",
+
         "Add Water Consumption",
         ]
     for string in strings_to_translate:
@@ -75,6 +95,9 @@ def top(request, ):
         "form": form,
         "unit":unit,
         "record_id": today_record_id,
+        'translated_title': translated_title,
+        'translated_date':translated_date,
+        
     }
 
     return render(request, "water/top.html", context)
@@ -82,22 +105,16 @@ def top(request, ):
 
 @login_required
 def dashboard(request):
-  
     username = request.user.username
     current_date = date.today()
    
-    # current_month_abbr = date.today().strftime('%b')
-    # current_year = date.today().year
-
-    # Setting the active language to Japanese
-    
     df = DateFormat(current_date)
-    current_month_abbr = df.format('M')  # This will give you the month abbreviation in Japanese.
-    current_year = df.format('Y')  # This will give you the year in Japanese.
+    current_month_abbr = df.format('M')  
+    current_year = df.format('Y')
     user_water_records = WaterConsumption.objects.filter(user=request.user, date__month=current_date.month)
     userprofile = UserProfile.objects.filter(user=request.user).first()
     unit = userprofile.unit if userprofile and userprofile.unit else 'ml'
-    # Create a dictionary to hold the total consumption for each day of the month.
+   
     daily_consumption = defaultdict(float)
     for record in user_water_records:
         daily_consumption[record.date.day] += record.amount_drank
@@ -114,6 +131,7 @@ def dashboard(request):
       
     average_prefix_string = _("Your average water intake for {month} {year} is ")
     average_value_string = _("{average} {unit}")
+        
     translated_average_prefix = average_prefix_string.format(month=current_month_abbr, year=current_year)
     translated_average_value = average_value_string.format(average=average_consumption_per_day, unit=unit)
 

@@ -23,15 +23,12 @@ def register(request):
         form = RegistrationForm(request.POST)
         if form.is_valid():
             user = form.save()
-            # Create UserProfile and link it to the user
             profile = UserProfile(user=user, unit=form.cleaned_data['unit'])
             profile.save()
 
-            # Log the user in
             authenticated_user = authenticate(username=form.cleaned_data['username'], password=form.cleaned_data['password1'])
             if authenticated_user is not None:
                 login(request, authenticated_user)
-                # Redirect to a success page, for instance the homepage or user's dashboard
                 return redirect('top')
 
     else:
@@ -43,7 +40,7 @@ def register(request):
         "Username", 
         "Date",
         "Total Water Consumed Today",
-        "Add More Water Consumption",
+       
         "Add Water Consumption",
         ]
     for string in strings_to_translate:

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-09-01 13:46+0900\n"
+"POT-Creation-Date: 2023-09-02 17:12+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -83,14 +83,6 @@ msgstr ""
 msgid "日本語"
 msgstr ""
 
-#: water/templates/water/top.html:6
-msgid "Water Consumption for Today"
-msgstr "本日の水分摂取量"
-
-#: water/templates/water/top.html:7
-msgid "Username"
-msgstr "ユーザーネーム"
-
 #: water/templates/water/top.html:8
 msgid "Date"
 msgstr "日付"
@@ -99,28 +91,39 @@ msgstr "日付"
 msgid "Total Water Consumed Today"
 msgstr "本日の水分摂取量合計"
 
-#: water/templates/water/top.html:15
-msgid "Add More Water Consumption"
-msgstr "水分摂取量を足す"
 
-#: water/templates/water/top.html:21
+
+#: water/templates/water/top.html:25
 msgid "Add Water Consumption"
 msgstr "水分摂取量を足す"
 
-#: water/views.py:111
+#: water/views.py:31
+#, python-brace-format
+
+msgid "Your water intake for {formatted_today} is"
+msgstr "{formatted_today}の平均水分摂取量は "
+
+#: water/views.py:69
+#, python-brace-format
+msgid "Welcome {username}!"
+msgstr "{username}さん、ようこそ"
+
+#: water/views.py:128
 #, python-brace-format
 msgid "Welcome back {username} !"
 msgstr "{username}さん、おかえりなさい。"
 
-#: water/views.py:115
+#: water/views.py:132
+#, python-brace-format
 msgid "Your average water intake for {month} {year} is "
 msgstr "{year}年 {month}の１日の平均水分摂取量は "
 
-#: water/views.py:116
+#: water/views.py:133
+#, python-brace-format
 msgid "{average} {unit}"
 msgstr "{average} {unit}"
 
-#: water/views.py:121
+#: water/views.py:139
 msgid "Amount Consumed"
 msgstr "水分摂取合計量"
 
@@ -132,12 +135,5 @@ msgstr "英語"
 msgid "Japanese"
 msgstr "日本語"
 
-#, python-brace-format
-#~ msgid "{username}'s Water Consumption {month} {year}"
-#~ msgstr "{year}年{month}の {username} さんの水分摂取量"
-
-#~ msgid "英語"
-#~ msgstr "EN"
-
-#~ msgid "JA"
-#~ msgstr "日本語"
+#~ msgid "Username"
+#~ msgstr "ユーザーネーム"

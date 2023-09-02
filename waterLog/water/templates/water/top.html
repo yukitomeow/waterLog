@@ -1,26 +1,24 @@
-{% extends "base.html" %} {% load static %} {% load i18n %}
+{% extends "base.html" %} {% load bootstrap5 %} {% load static %} {% load i18n %}
 {% block title %}Water Consumption Log{% endblock %}{% block content %}
 
-
-<div class="container">
-  <h2>{% trans "Water Consumption for Today"  %}</h2>
-  <p><strong>{% trans "Username" %}:</strong> {{ username }}</p>
-  <p><strong>{% trans "Date" %}:</strong> {{ date }}</p>
-  <p>
-    <strong>{% trans "Total Water Consumed Today" %}:</strong>
-    <span id="totalWater">{{ total_water_today }}</span> {{unit}} 
-  </p>
-  
-  <!-- Always display the form to add more water consumption -->
-  <h3>{% trans "Add More Water Consumption" %}</h3>
-  <form method="post">
-    {% csrf_token %} 
-    <div class="form-field">
-      {{ form.as_p }}{{unit}}
+<div class="d-flex justify-content-center align-items-center flex-column">
+  <div class="container-fluid text-center">
+      <h2>{{ translated_title }}</h2>
+      <p><span>{{translated_date}}</span><strong class="display-4">{{ total_water_today }}</strong>{{unit}} </p>  
   </div>
-    <button type="submit">{% trans "Add Water Consumption" %}</button>
-  </form>
+  <div class="d-flex justify-content-center w-100">
+      <form method="post" class="text-center">
+          {% csrf_token %}
+          {% for field in form %}
+          <div class="mb-3">
+              {% bootstrap_field field layout='floating' %}
+          </div>
+          {% endfor %}
+          <button type="submit" class="btn btn-primary w-100">{% trans "Add Water Consumption" %}</button>
+      </form>
+  </div>
 </div>
+
 
 <!-- React Component will be rendered below -->
 <div id="react-root"></div>
