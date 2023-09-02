@@ -14,7 +14,10 @@
               {% bootstrap_field field layout='floating' %}
           </div>
           {% endfor %}
-          <button type="submit" class="btn btn-primary w-100">{% trans "Add Water Consumption" %}</button>
+          <div class="d-flex justify-content-between">
+            <button type="submit" class="btn btn-primary mr-2">{% trans "Add Water Consumption" %}</button>
+            <a href="{% url 'dashboard' %}" class="btn btn-primary">{% trans "Go to Dashboard" %}</a>
+        </div>
       </form>
   </div>
 </div>

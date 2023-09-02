@@ -81,7 +81,7 @@ def top(request, ):
         "Username", 
         "Date",
         "Total Water Consumed Today",
-
+        "Go to Dashboard",
         "Add Water Consumption",
         ]
     for string in strings_to_translate:
