@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-09-02 18:42+0900\n"
+"POT-Creation-Date: 2023-09-03 13:35+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -83,7 +83,7 @@ msgstr ""
 msgid "日本語"
 msgstr ""
 
-#: water/forms.py:8
+#: water/forms.py:9
 msgid "Amount Drank"
 msgstr "飲んだ量"
 
@@ -98,7 +98,7 @@ msgstr "ダッシュボードを見る"
 #: water/views.py:31
 #, python-brace-format
 msgid "Your water intake for {formatted_today} is"
-msgstr "{formatted_today}の平均水分摂取量は "
+msgstr "{formatted_today}の水分摂取量は "
 
 #: water/views.py:69
 #, python-brace-format

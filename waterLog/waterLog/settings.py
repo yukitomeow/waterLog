@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     "dashboard.apps.DashboardConfig",
     "bootstrap5",
     "accounts.apps.AccountsConfig",
+    'widget_tweaks',
 
 ]
 
