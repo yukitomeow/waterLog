@@ -48,8 +48,7 @@ INSTALLED_APPS = [
     "bootstrap5",
     "accounts.apps.AccountsConfig",
     'widget_tweaks',
-    "water"
-
+    # "water"
 ]
 
 MIDDLEWARE = [
@@ -110,7 +109,9 @@ WSGI_APPLICATION = "waterLog.wsgi.application"
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
 DATABASES = {
-    'default': dj_database_url.config(default='sqlite:///' + str(BASE_DIR / "db.sqlite3"))
+    'default': dj_database_url.config(default='postgresql://postgres:3wmYW$Jexp.AsGe@db.cqflxxkkwgmntqzcoxvn.supabase.co:5432/postgres')
+                                      
+                                      
 }
 
 
