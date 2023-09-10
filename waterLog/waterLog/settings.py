@@ -29,7 +29,9 @@ SECRET_KEY = os.environ.get("SECRET_KEY","django-insecure-%wd3yft6e-ca3sh!q)z(w$
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["*"]
+# vercel_app/settings.py
+ALLOWED_HOSTS = ['127.0.0.1', 'localhost', '.vercel.app']
+
 
 
 # Application definition
@@ -46,7 +48,7 @@ INSTALLED_APPS = [
     "bootstrap5",
     "accounts.apps.AccountsConfig",
     'widget_tweaks',
-   
+
 ]
 
 MIDDLEWARE = [
@@ -99,6 +101,8 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = "waterLog.wsgi.application"
+
+
 
 
 # Database
