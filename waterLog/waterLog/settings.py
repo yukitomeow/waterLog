@@ -23,8 +23,8 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-# SECRET_KEY = "django-insecure-%wd3yft6e-ca3sh!q)z(w$$n0f_5=@da0efat-=rgueld_htw7"
-SECRET_KEY = os.environ.get("SECRET_KEY","django-insecure-%wd3yft6e-ca3sh!q)z(w$$n0f_5=@da0efat-=rgueld_htw7")
+SECRET_KEY = "django-insecure-%wd3yft6e-ca3sh!q)z(w$$n0f_5=@da0efat-=rgueld_htw7"
+# SECRET_KEY = os.environ.get("SECRET_KEY","django-insecure-%wd3yft6e-ca3sh!q)z(w$$n0f_5=@da0efat-=rgueld_htw7")
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -48,6 +48,7 @@ INSTALLED_APPS = [
     "bootstrap5",
     "accounts.apps.AccountsConfig",
     'widget_tweaks',
+    "water"
 
 ]
 
