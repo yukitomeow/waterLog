@@ -30,7 +30,7 @@ SECRET_KEY = "django-insecure-%wd3yft6e-ca3sh!q)z(w$$n0f_5=@da0efat-=rgueld_htw7
 DEBUG = True
 
 # vercel_app/settings.py
-ALLOWED_HOSTS = ['127.0.0.1', 'localhost', '.vercel.app']
+ALLOWED_HOSTS = ["*"]
 
 
 
@@ -109,10 +109,12 @@ WSGI_APPLICATION = "waterLog.wsgi.application"
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
 DATABASES = {
-    'default': dj_database_url.config(default='postgresql://postgres:3wmYW$Jexp.AsGe@db.cqflxxkkwgmntqzcoxvn.supabase.co:5432/postgres')
-                                      
-                                      
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / "db.sqlite3",
+    }
 }
+
 
 
 # Password validation
